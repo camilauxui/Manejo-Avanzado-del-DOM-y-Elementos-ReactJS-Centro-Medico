@@ -2,6 +2,19 @@
 
 Este proyecto permite gestionar datos de doctores, servicios y agendar citas médicas.  
 
+_________________________________________________________________________
+
+Clonar este repositorio:
+
+git clone https://github.com/tuusuario/centro-medico.git
+
+Navega a la carpeta del proyecto y ejecuta:
+
+npm install
+npm start
+
+__________________________________________________________________________
+
 ## Características  
 
 - Listado de médicos con detalles de especialidad, experiencia y disponibilidad.  
@@ -21,15 +34,3 @@ En la aplicación, se pueden ver ejemplos de cómo el uso del DOM Virtual mejora
 
 Se utiliza el hook `useEffect` para cargar los datos de servicios y doctores al mostrar el componente. Este hook garantiza que las funciones de carga de datos solo se ejecuten una vez. Al usar useEffect, se indica que deseas realizar ciertas acciones (como cargar datos) después de que el componente se haya cargado. Al pasar un array vacío [] como segundo argumento, se garantiza que esta función solo se ejecute una vez.
 
-
-____________________________________________________________________________________________
-
-## Instalación
-Clonar este repositorio:
-
-git clone https://github.com/tuusuario/centro-medico.git  
-
-Navega a la carpeta del proyecto y ejecuta:
-
-npm install  
-npm start  
