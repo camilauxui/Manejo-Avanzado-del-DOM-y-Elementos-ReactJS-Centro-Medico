@@ -11,6 +11,7 @@ git clone https://github.com/tuusuario/centro-medico.git
 Navega a la carpeta del proyecto y ejecuta:
 
 npm install
+
 npm start
 
 __________________________________________________________________________
