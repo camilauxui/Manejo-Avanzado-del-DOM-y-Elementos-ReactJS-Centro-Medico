@@ -52,17 +52,16 @@ DoctorCard: Ya tiene PropTypes implementado correctamente.
 ServiceList: Se agregó PropTypes para validar que services sea un arreglo de objetos con propiedades específicas.
 
 ## 5. Uso de Componentes de Orden Superior y Portales
-# Explicación de los Cambios
-Eliminación del Estado Local: Se eliminó el estado local de formData, confirmationMessage y setFormData, ya que ahora son manejados por el HOC withForm.
+**Eliminación del Estado Local en el Formulario:** Se eliminó el estado local de formData, confirmationMessage y setFormData, ya que ahora son manejados por el HOC withForm.
 
-# Uso de Props del HOC: 
 El componente ahora utiliza las props formData, errorMessage, confirmationMessage, handleChange y handleSubmit que son proporcionadas por el HOC.
 
-# Función de Envío: 
 La función onSubmit se pasa a handleSubmit, que es responsable de validar y procesar el envío del formulario.
 
-# Manejo de Mensajes de Error y Confirmación: 
+**Manejo de Mensajes de Error y Confirmación:**
 Se agregaron secciones para mostrar mensajes de error y confirmación, que ahora son gestionados por el HOC.
 
-# Crea un portal para renderizar un modal 
-que muestre información detallada de un doctor o servicio en una capa superior sin interferir con la estructura del DOM principal
+**Crea un portal para renderizar un modal**
+Al hacer clic en el botòn ver màs en cada servicio , se abre un modal en una capa superior sin interferir con la estructura del DOM principal
+
+## 6. Optimización de Rendimiento y Profiler en ReactJS
