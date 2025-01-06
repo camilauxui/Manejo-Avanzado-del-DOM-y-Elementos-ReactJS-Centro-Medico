@@ -1,4 +1,5 @@
 import React from 'react';  
+import PropTypes from 'prop-types';  // Importar PropTypes  
 import './ServiceList.css';   
 
 const ServiceList = ({ services }) => {  
@@ -24,6 +25,17 @@ const ServiceList = ({ services }) => {
             </div>  
         </section>  
     );  
+};  
+
+ServiceList.propTypes = {  
+    services: PropTypes.arrayOf(  
+        PropTypes.shape({  
+            id: PropTypes.number.isRequired,  
+            title: PropTypes.string.isRequired,  
+            description: PropTypes.string.isRequired,  
+            image: PropTypes.string.isRequired  
+        })  
+    ).isRequired  
 };  
 
 export default ServiceList;

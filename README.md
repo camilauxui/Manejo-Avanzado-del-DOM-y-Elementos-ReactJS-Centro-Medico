@@ -22,7 +22,7 @@ __________________________________________________________________________
 - Listado de servicios médicos ofrecidos.  
 - Formulario para agendar citas médicas.  
 
-## Manejo del DOM Virtual en ReactJS  
+## 1 - Manejo del DOM Virtual en ReactJS  
 
 React utiliza **DOM Virtual** para optimizar la renderización de componentes. El DOM Virtual es una representación en memoria del DOM real que permite a React realizar actualizaciones más eficientes. Cuando el estado de un componente cambia, React crea un nuevo árbol de DOM Virtual y lo compara con el árbol anterior. Este proceso se llama **reconciliación**.
 
@@ -35,3 +35,18 @@ En la aplicación, se pueden ver ejemplos de cómo el uso del DOM Virtual mejora
 
 Se utiliza el hook `useEffect` para cargar los datos de servicios y doctores al mostrar el componente. Este hook garantiza que las funciones de carga de datos solo se ejecuten una vez. Al usar useEffect, se indica que deseas realizar ciertas acciones (como cargar datos) después de que el componente se haya cargado. Al pasar un array vacío [] como segundo argumento, se garantiza que esta función solo se ejecute una vez.
 
+## 2 - Creación y Uso de Referencias en React  
+**Explicación de las modificaciones:**
+Importación de useRef: Se importa useRef para crear referencias.
+
+**Creación de la referencia:** Se crea un useRef llamado nameInputRef que se utilizará para el campo de nombre.
+
+**Uso de la referencia:** Se asigna ref={nameInputRef} al campo de entrada del nombre.
+
+**Enfoque del campo:** En useEffect, al montar el componente, se llama a nameInputRef.current.focus() para colocar el foco en el campo de nombre.
+
+## 3. Uso de Fragmentos y Contexto en ReactJS
+
+## 4. Verificación de Tipos con PropTypes
+DoctorCard: Ya tiene PropTypes implementado correctamente.
+ServiceList: Se agregó PropTypes para validar que services sea un arreglo de objetos con propiedades específicas.

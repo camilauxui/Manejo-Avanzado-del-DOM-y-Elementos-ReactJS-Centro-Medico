@@ -1,4 +1,4 @@
-import React, { useState } from 'react';  
+import React, { useState, useRef, useEffect } from 'react';  
 import './AppointmentForm.css';   
 
 const AppointmentForm = () => {  
@@ -12,6 +12,12 @@ const AppointmentForm = () => {
     });  
 
     const [confirmationMessage, setConfirmationMessage] = useState(''); // Estado para el mensaje de confirmación  
+    const nameInputRef = useRef(null); // Crear una referencia para el campo de nombre  
+
+    useEffect(() => {  
+        // Enfocar el campo de nombre cuando el componente se monta  
+        nameInputRef.current.focus();  
+    }, []);  
 
     const handleChange = (e) => {  
         const { name, value } = e.target;  
@@ -24,7 +30,7 @@ const AppointmentForm = () => {
 
         // Mensaje de confirmación  
         const message = `Nombre del paciente: ${formData.name}. Usted tiene cita con ${formData.doctor} el día ${formData.date} a las ${formData.time}.`;  
-        setConfirmationMessage(message); 
+        setConfirmationMessage(message);   
 
         // Resetear el formulario  
         setFormData({  
@@ -49,6 +55,7 @@ const AppointmentForm = () => {
                         name="name"  
                         value={formData.name}  
                         onChange={handleChange}  
+                        ref={nameInputRef} // Asignar la referencia al campo de nombre  
                         required  
                     />  
                 </div>  
