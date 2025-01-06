@@ -65,3 +65,4 @@ Se agregaron secciones para mostrar mensajes de error y confirmación, que ahora
 Al hacer clic en el botòn ver màs en cada servicio , se abre un modal en una capa superior sin interferir con la estructura del DOM principal
 
 ## 6. Optimización de Rendimiento y Profiler en ReactJS
+Podrás ver en la consola del navegador los tiempos de renderización de DoctorList e identificar si hay cuellos de botella cuando se renderizan muchos doctores.
