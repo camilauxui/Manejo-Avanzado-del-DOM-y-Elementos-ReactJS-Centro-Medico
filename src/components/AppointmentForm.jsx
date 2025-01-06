@@ -1,17 +1,9 @@
-import React, { useState, useRef, useEffect } from 'react';  
+// AppointmentForm.js  
+import React, { useRef, useEffect } from 'react';  
+import withForm from './withForm';   
 import './AppointmentForm.css';   
 
-const AppointmentForm = () => {  
-    const [formData, setFormData] = useState({  
-        name: '',  
-        email: '',  
-        phone: '',  
-        doctor: '',  
-        date: '',  
-        time: '',  
-    });  
-
-    const [confirmationMessage, setConfirmationMessage] = useState(''); // Estado para el mensaje de confirmación  
+const AppointmentForm = ({ formData, errorMessage, confirmationMessage, handleChange, handleSubmit }) => {  
     const nameInputRef = useRef(null); // Crear una referencia para el campo de nombre  
 
     useEffect(() => {  
@@ -19,34 +11,18 @@ const AppointmentForm = () => {
         nameInputRef.current.focus();  
     }, []);  
 
-    const handleChange = (e) => {  
-        const { name, value } = e.target;  
-        setFormData({ ...formData, [name]: value });  
-    };  
-
-    const handleSubmit = (e) => {  
-        e.preventDefault();  
-        console.log('Cita agendada:', formData);  
+    const onSubmit = (data) => {  
+        console.log('Cita agendada:', data);  
 
         // Mensaje de confirmación  
-        const message = `Nombre del paciente: ${formData.name}. Usted tiene cita con ${formData.doctor} el día ${formData.date} a las ${formData.time}.`;  
-        setConfirmationMessage(message);   
-
-        // Resetear el formulario  
-        setFormData({  
-            name: '',  
-            email: '',  
-            phone: '',  
-            doctor: '',  
-            date: '',  
-            time: '',  
-        });  
+        const message = `Nombre del paciente: ${data.name}. Usted tiene cita con ${data.doctor} el día ${data.date} a las ${data.time}.`;  
+        alert(message); // O puedes usar setConfirmationMessage si lo deseas  
     };  
 
     return (  
         <section id="appointment" className="appointment-form">  
             <h2>Agendar cita médica</h2>  
-            <form onSubmit={handleSubmit}>  
+            <form onSubmit={(e) => handleSubmit(e, onSubmit)}>  
                 <div>  
                     <label htmlFor="name">Nombre:</label>  
                     <input  
@@ -127,6 +103,9 @@ const AppointmentForm = () => {
                 <button type="submit">Agendar Cita</button>  
             </form>  
 
+            {/* Mostrar mensaje de error */}  
+            {errorMessage && <div className="error-message">{errorMessage}</div>}  
+
             {/* Mostrar mensaje de confirmación */}  
             {confirmationMessage && (  
                 <div className="confirmation-message">  
@@ -138,4 +117,6 @@ const AppointmentForm = () => {
     );  
 };  
 
-export default AppointmentForm;
+// Usar el HOC con los datos iniciales  
+const initialFormData = { name: '', email: '', phone: '', doctor: '', date: '', time: '' };  
+export default withForm(AppointmentForm, initialFormData);

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';  
 import PropTypes from 'prop-types';  
 import './ServiceList.css';  
-import Modal from './Modal'; // Importamos el modal  
+import Modal from './Modal'; 
 
 const ServiceList = ({ services }) => {  
     const [isModalOpen, setIsModalOpen] = useState(false);  
