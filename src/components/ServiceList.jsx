@@ -1,8 +1,22 @@
-import React from 'react';  
-import PropTypes from 'prop-types';  // Importar PropTypes  
-import './ServiceList.css';   
+import React, { useState } from 'react';  
+import PropTypes from 'prop-types';  
+import './ServiceList.css';  
+import Modal from './Modal'; // Importamos el modal  
 
 const ServiceList = ({ services }) => {  
+    const [isModalOpen, setIsModalOpen] = useState(false);  
+    const [selectedService, setSelectedService] = useState(null);  
+
+    const openModal = (service) => {  
+        setSelectedService(service);  
+        setIsModalOpen(true);  
+    };  
+
+    const closeModal = () => {  
+        setIsModalOpen(false);  
+        setSelectedService(null);  
+    };  
+
     return (  
         <section id="services" className="section-services">  
             <h2>Servicios Médicos</h2>  
@@ -20,9 +34,22 @@ const ServiceList = ({ services }) => {
                         />  
                         <h3>{service.title}</h3>  
                         <p>{service.description}</p>  
+                        <button onClick={() => openModal(service)}>Ver Más</button> {/* Botón de "Ver Más" */}  
                     </article>  
                 ))}  
             </div>  
+
+            {/* Modal para mostrar información del servicio seleccionado */}  
+            <Modal isOpen={isModalOpen} onClose={closeModal}>  
+                {selectedService && (  
+                    <>  
+                        <h2>{selectedService.title}</h2>  
+                        <img src={selectedService.image} alt={selectedService.title} className="responsive-img" />  
+                        <p>{selectedService.description}</p>  
+                        {/* Puedes añadir más información aquí si lo deseas */}  
+                    </>  
+                )}  
+            </Modal>  
         </section>  
     );  
 };  
